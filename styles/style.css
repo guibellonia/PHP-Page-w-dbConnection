@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --background: rgb(5, 5, 5);
+  --background-darker: rgb(2, 2, 2);
+  --card-background: rgb(15, 15, 15);
+  --card-red: rgb(232, 16, 16);
+  --card-blue: rgb(16, 16, 232);
+  --card-green: rgb(16, 232, 16);
+  --card-purple: rgb(126, 6, 195);
+  --card-gold: rgb(244, 193, 7);
+  --card-aqua: rgb(75, 207, 198);
+  --text-primary: #eaeaea;
+  --text-primary-darker: #cdd3d6;
+  --text-primary-lesser: #eaeaea40;
+  --Montserrat: "Montserrat", sans-serif;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+}
+
+body {
+  padding: 2rem;
+  background: var(--background);
+  font-family: var(--Montserrat);
+  scroll-behavior: smooth;
+  cursor: url('../assets/images/cursor.png') 0 0, auto;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+}
+
+.operationsContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.titleIcon{
+  font-size: 2.5rem;
+}
+
+.mainTitleWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.mainTitle {
+  position: relative;
+  font-size: 3rem;
+  font-family: var(--Montserrat);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mainSubtitle{
+  position: relative;
+  font-size: 1rem;
+  font-family: var(--Montserrat);
+  font-weight: 500;
+  background: linear-gradient(var(--text-primary), var(--text-primary-darker));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 60%;
+  text-align: center;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin: 3rem 0;
+  transition: all 0.4s ease;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24rem;
+  width: 16rem;
+  background-color: var(--background);
+  color: var(--text-primary);
+  padding: 2rem;
+  border: 1px solid var(--text-primary-lesser);
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 10rem -6rem #ffffff34;
+  position: relative;
+  user-select: none;
+  transition: all .4s ease;
+}
+
+.cardTextWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.cardWrapper:hover{
+  box-shadow: inset 0 0 10rem -1rem #ffffff34;
+  border: 1px solid #ffffff50;
+}
+
+.cardWrapper::after,
+.cardWrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--text-primary)
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  animation: 1s spin linear infinite;
+  opacity: 0;
+  transition: all .4s ease;
+}
+
+.cardWrapper:hover::after,
+.cardWrapper:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--text-primary)
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  animation: 1s spin linear infinite;
+  opacity: 1;
+}
+
+.cardWrapper:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.cardText{
+  opacity: 60%;
+}
+
+.cardTags {
+  width: 100%;
+}
+
+.cardTag {
+  position: relative;
+  width: fit-content;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: .05rem solid var(--text-primary);
+  font-weight: 200;
+  transition: all 0.4s ease;
+}
+
+.cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--text-primary);
+}
+
+/* RED CARD */
+
+.cardWrapper[style*="--Fogo: true"] {
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10rem -6rem #ff000034;
+}
+
+.cardWrapper[style*="--Fogo: true"]:hover {
+  box-shadow: inset 0 0 10rem -1rem #ff000034;
+  border: 1px solid #ff000050;
+}
+
+.cardWrapper[style*="--Fogo: true"]::after,
+.cardWrapper[style*="--Fogo: true"]::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-red)
+  );
+}
+
+.cardWrapper[style*="--Fogo: true"]:hover::after,
+.cardWrapper[style*="--Fogo: true"]:hover::before {
+  opacity: 1;
+}
+
+.cardWrapper[style*="--Fogo: true"]:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardWrapper[style*="--Fogo: true"] .cardTag {
+  border: .05rem solid var(--card-red);
+}
+
+.cardWrapper[style*="--Fogo: true"] .cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--card-red);
+}
+
+/* BLUE CARD */
+
+.cardWrapper[style*="--Água: true"] {
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10rem -6rem #0000ff34;
+}
+
+.cardWrapper[style*="--Água: true"]:hover {
+  box-shadow: inset 0 0 10rem -1rem #0000ff34;
+  border: 1px solid #0000ff50;
+}
+
+.cardWrapper[style*="--Água: true"]::after,
+.cardWrapper[style*="--Água: true"]::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-blue)
+  );
+}
+
+.cardWrapper[style*="--Água: true"]:hover::after,
+.cardWrapper[style*="--Água: true"]:hover::before {
+  opacity: 1;
+}
+
+.cardWrapper[style*="--Água: true"]:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardWrapper[style*="--Água: true"] .cardTag {
+  border: .05rem solid var(--card-blue);
+}
+
+.cardWrapper[style*="--Água: true"] .cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--card-blue);
+}
+
+/* PURPLE CARD */
+
+.cardWrapper[style*="--Sombra: true"] {
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10rem -6rem #e100ff34;
+}
+
+.cardWrapper[style*="--Sombra: true"]:hover {
+  box-shadow: inset 0 0 10rem -1rem #d900ff34;
+  border: 1px solid #f200ff50;
+}
+
+.cardWrapper[style*="--Sombra: true"]::after,
+.cardWrapper[style*="--Sombra: true"]::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-purple)
+  );
+}
+
+.cardWrapper[style*="--Sombra: true"]:hover::after,
+.cardWrapper[style*="--Sombra: true"]:hover::before {
+  opacity: 1;
+}
+
+.cardWrapper[style*="--Sombra: true"]:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardWrapper[style*="--Sombra: true"] .cardTag {
+  border: .05rem solid var(--card-purple);
+}
+
+.cardWrapper[style*="--Sombra: true"] .cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--card-purple);
+}
+/* GREEN CARD */
+
+.cardWrapper[style*="--Luz: true"] {
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10rem -6rem #ffc40034;
+}
+
+.cardWrapper[style*="--Luz: true"]:hover {
+  box-shadow: inset 0 0 10rem -1rem #ffb30034;
+  border: 1px solid #ffa60050;
+}
+
+.cardWrapper[style*="--Luz: true"]::after,
+.cardWrapper[style*="--Luz: true"]::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-gold)
+  );
+}
+
+.cardWrapper[style*="--Luz: true"]:hover::after,
+.cardWrapper[style*="--Luz: true"]:hover::before {
+  opacity: 1;
+}
+
+.cardWrapper[style*="--Luz: true"]:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardWrapper[style*="--Luz: true"] .cardTag {
+  border: .05rem solid var(--card-gold);
+}
+
+.cardWrapper[style*="--Luz: true"] .cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--card-gold);
+}
+/* GREEN CARD */
+
+.cardWrapper[style*="--Terra: true"] {
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 10rem -6rem #00ff0034;
+}
+
+.cardWrapper[style*="--Terra: true"]:hover {
+  box-shadow: inset 0 0 10rem -1rem #00ff0034;
+  border: 1px solid #00ff0050;
+}
+
+.cardWrapper[style*="--Terra: true"]::after,
+.cardWrapper[style*="--Terra: true"]::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-green)
+  );
+}
+
+.cardWrapper[style*="--Terra: true"]:hover::after,
+.cardWrapper[style*="--Terra: true"]:hover::before {
+  opacity: 1;
+}
+
+.cardWrapper[style*="--Terra: true"]:hover::before {
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.cardWrapper[style*="--Terra: true"] .cardTag {
+  border: .05rem solid var(--card-green);
+}
+
+.cardWrapper[style*="--Terra: true"] .cardTag:hover {
+  box-shadow: 0.1rem 0 1rem var(--card-green);
+}
+
+.formWrap{
+  position: relative;
+  background: transparent;
+  display: flex;
+  color: white;
+  border: .01rem solid #ffffff25;
+  height: 40rem;
+  width: 20rem;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+@media screen and (min-width: 728px) {
+  .formWrap {
+    position: relative;
+    background: transparent;
+    display: flex;
+    color: white;
+    border: 0.01rem solid #ffffff25;
+    width: 45%;
+    height: 40rem;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+}
+
+.formWrap::after{
+  content: "";
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  background-size: 60px 60px;
+  background-image:
+  linear-gradient(to right, grey 1px, transparent 1px),
+  linear-gradient(to bottom, grey 1px, transparent 1px);
+  z-index: -2;
+  border-radius: 1rem;
+  animation: moveUp 4s linear infinite;
+}
+
+.formWrap::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(to top, transparent 10%, var(--background)),
+  linear-gradient(to right, transparent 20%, var(--background)),
+  linear-gradient(to bottom, transparent 80%, var(--background)),
+  linear-gradient(to left, transparent 20%, var(--background));
+  z-index: -1;
+  border-radius: 1rem;
+}
+
+.formWrap form{
+  display: flex;
+  width: 40rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.textInput{
+  border: none;
+  width: 100%;
+  padding: .5rem 0;
+  border: .01rem solid #ffffff50;
+  color: #fff;
+  text-align: center;
+  border-radius: .4rem;
+  background: transparent;
+  backdrop-filter: brightness(50%);
+  backdrop-filter: blur(.2rem);
+  cursor: url('../assets/images/write.png'), auto;
+}
+
+.selectInput{
+  border: none;
+  width: 100%;
+  padding: .5rem 0;
+  border: .01rem solid #ffffff50;
+  color: #fff;
+  border-radius: .4rem;
+  background: transparent;
+  text-align: center;
+  backdrop-filter: brightness(50%);
+  backdrop-filter: blur(.2rem);
+  appearance: none;
+  cursor: url('../assets/images/hover.png'), auto;
+}
+
+.selectInput option {
+  background-color: var(--background);
+  color: #fff;
+  padding: 1rem;
+}
+
+.selectInput option:hover, option:focus, option:active {
+  background-color: var(--background);
+  color: #fff;
+  padding: 1rem;
+  cursor: url('../assets/images/hover.png'), auto;
+}
+
+.submitButton{
+  border: 1px solid #ffffff30;
+  padding: 1rem 3rem;
+  color: var(--text-primary);
+  background-color: var(--background);
+  border-radius: .5rem;
+  transition: all .4s ease;
+}
+
+.submitButton:hover{
+  box-shadow: 0 1rem 1rem #ffffff20;
+  cursor: url('../assets/images/hover.png'), auto;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 365deg;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-180px); /* Move 20px para cima */
+  }
+}
