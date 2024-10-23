@@ -5,6 +5,12 @@
   margin: 0;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 :root {
   --background: rgb(5, 5, 5);
   --background-darker: rgb(2, 2, 2);
@@ -33,12 +39,20 @@ body {
   cursor: url('../assets/images/cursor.png') 0 0, auto;
 }
 
+a{
+  text-decoration: none;
+}
+
+button:hover{
+  cursor: url('../assets/images/hover.png');
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
+  gap: 1.5rem;
   width: 100%;
 }
 
@@ -49,6 +63,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin: 0;
 }
 
 .titleIcon{
@@ -91,7 +106,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
-  margin: 3rem 0;
+  margin: 0;
   transition: all 0.4s ease;
 }
 
@@ -119,6 +134,7 @@ body {
 }
 
 .cardWrapper:hover{
+
   box-shadow: inset 0 0 10rem -1rem #ffffff34;
   border: 1px solid #ffffff50;
 }
@@ -198,6 +214,7 @@ body {
 
 .cardTag:hover {
   box-shadow: 0.1rem 0 1rem var(--text-primary);
+  cursor: url('../assets/images/hover.png');
 }
 
 /* RED CARD */
@@ -476,6 +493,7 @@ body {
   background: transparent;
   backdrop-filter: brightness(50%);
   backdrop-filter: blur(.2rem);
+  appearance: text;
   cursor: url('../assets/images/write.png'), auto;
 }
 
@@ -517,8 +535,54 @@ body {
 }
 
 .submitButton:hover{
-  box-shadow: 0 1rem 1rem #ffffff20;
+  transform: perspective(600px) rotateX(25deg);
+  box-shadow: 0 0 .9rem #ffffff90;
   cursor: url('../assets/images/hover.png'), auto;
+}
+
+.resultButton{
+  position: relative;
+  border: 1px solid #ffd00030;
+  padding: 1rem 3rem;
+  color: var(--card-gold);
+  background-color: var(--background);
+  border-radius: .5rem;
+  transition: all .4s linear;
+}
+
+.resultButton::after, .resultButton::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 5%,
+    var(--card-gold)
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  animation: 2s spinReverse linear infinite;
+  opacity: 1;
+  transition: all .4s ease;
+}
+
+.resultButton::before{
+  filter: blur(0.8rem);
+  opacity: 60%;
+}
+
+.updateContainer{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0;
 }
 
 @property --angle {
@@ -537,11 +601,20 @@ body {
   }
 }
 
+@keyframes spinReverse {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: -365deg;
+  }
+}
+
 @keyframes moveUp {
   from {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-180px); /* Move 20px para cima */
+    transform: translateY(-180px);
   }
 }

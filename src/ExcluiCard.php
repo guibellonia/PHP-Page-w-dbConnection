@@ -4,7 +4,6 @@ require_once 'PoderesRepositorio.php';
 require_once 'DbConnection.php';
 require_once 'models/Card.php';
 
-// Obter todos os cards para exibir no dropdown
 $cardRepository = new PoderesRepositorio($connection);
 $cards = $cardRepository->getAllCards();
 

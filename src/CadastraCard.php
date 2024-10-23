@@ -5,9 +5,8 @@ require_once __DIR__ . '/DbConnection.php';
 require_once 'models/Card.php';
 
 if (isset($_POST['cadastrar'])) {
-    // Validação simples dos dados
-    if (isset($_POST['Titulo']) && isset($_POST['Descricao']) && isset($_POST['IdTag'])) {
-        $card = new Card(null, $_POST['Titulo'], $_POST['Descricao'], (int)$_POST['IdTag']);
+    if (isset($_POST['Titulo']) && isset($_POST['Descricao']) && isset($_POST['NivelPoder']) && isset($_POST['IdTag'])) {
+        $card = new Card(null, $_POST['Titulo'], $_POST['Descricao'], $_POST['NivelPoder'], (int)$_POST['IdTag']);
         
         $cardRepository = new PoderesRepositorio($connection);
         $cardRepository->criarCard($card);
@@ -28,6 +27,9 @@ if (isset($_POST['cadastrar'])) {
 
             <label for="Descricao">Descrição</label>
             <input type="text" id="Descricao" name="Descricao" class="textInput" required>
+
+            <label for="Descricao">Nível de Poder</label>
+            <input type="number" id="NivelPoder" name="NivelPoder" class="textInput" max="2147483647" required>
 
             <label for="IdTag">Tag</label>
             <select name="IdTag" id="IdTag" class="selectInput">
