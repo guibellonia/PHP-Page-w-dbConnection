@@ -57,9 +57,8 @@ button:hover{
 }
 
 .operationsContainer{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -436,7 +435,48 @@ button:hover{
     display: flex;
     color: white;
     border: 0.01rem solid #ffffff25;
-    width: 45%;
+    width: 20rem;
+    height: 40rem;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+  .operationsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+  }
+}
+
+
+@media screen and (min-width: 991px) {
+  .formWrap {
+    position: relative;
+    background: transparent;
+    display: flex;
+    color: white;
+    border: 0.01rem solid #ffffff25;
+    width: 28rem;
+    height: 40rem;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .formWrap {
+    position: relative;
+    background: transparent;
+    display: flex;
+    color: white;
+    border: 0.01rem solid #ffffff25;
+    width: 38rem;
     height: 40rem;
     border-radius: 1rem;
     align-items: center;

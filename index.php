@@ -23,14 +23,12 @@ $poderesRepositorio = new PoderesRepositorio($connection);
         Este site tem o propósito de listar poderes de ficção.
       </p>
     </div>
-    <div class="operationsContainer">
-      <?php include_once './src/CadastraCard.php' ?>
-      <?php include_once './src/ExcluiCard.php' ?>
-    </div>
     <div class="cardContainer">
       <?php $poderesRepositorio->listaCards() ?>
     </div>
     <div class="operationsContainer">
+      <?php include_once './src/CadastraCard.php' ?>
+      <?php include_once './src/ExcluiCard.php' ?>
       <?php include_once './src/EditaCard.php' ?>
       <?php include_once './src/CardFight.php' ?>
     </div>

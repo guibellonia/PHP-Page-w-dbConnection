@@ -16,13 +16,7 @@ if (isset($_GET['card1Id']) && isset($_GET['card2Id'])) {
   }
 }
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link rel="stylesheet" href="../styles/style.css" />
   <link rel="icon" href="../assets/favicon.ico" />
 </head>
@@ -63,5 +57,3 @@ if (isset($_GET['card1Id']) && isset($_GET['card2Id'])) {
   </div>
 </section>
 </body>
-
-</html>
