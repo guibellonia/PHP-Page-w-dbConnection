@@ -62,7 +62,4 @@ INSERT INTO Card (idcard, titulo, descricao, idtag, nivelpoder) VALUES
 (29, 'Luz da Destruição Eterna', 'Uma luz tão intensa que aniquila tudo em seu alcance.', 5, 26000),
 (30, 'Escuridão do Mundo Inferior', 'Geração de um campo de sombras que cega e confunde todos os adversários.', 6, 21000);
 
-USE Poderes;
-DELETE FROM Card WHERE idCard IS NOT NULL;
-
 DESCRIBE Card;

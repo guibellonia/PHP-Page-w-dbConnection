@@ -117,7 +117,7 @@ class PoderesRepositorio
         echo "<div class='cardTags'>";
         echo "<button class='cardTag'>";
         echo "<p>" . htmlspecialchars($tag->getDescricaoTag()) . "</p>";
-        echo "</p></button>";
+        echo "</button>";
         echo "</div>";
         echo "</div>";
       } else {
@@ -162,12 +162,16 @@ class PoderesRepositorio
   {
     $vencedor = '';
 
-    if ($firstCard->getNivelPoder() > $secondCard->getNivelPoder()) {
-      $vencedor = $firstCard->getTitulo() . " Venceu!";
-    } elseif ($secondCard->getNivelPoder() > $firstCard->getNivelPoder()) {
-      $vencedor = $secondCard->getTitulo() . " Venceu!";
+    if($firstCard->getTitulo() == $secondCard->getTitulo()){
+      $vencedor = "Iguais colidiram! Empate!";
     } else {
-      $vencedor = $firstCard->getTitulo() . " e " . $secondCard->getTitulo() . " Empataram!";
+      if ($firstCard->getNivelPoder() > $secondCard->getNivelPoder()) {
+        $vencedor = $firstCard->getTitulo() . " Venceu!";
+      } elseif ($secondCard->getNivelPoder() > $firstCard->getNivelPoder()) {
+        $vencedor = $secondCard->getTitulo() . " Venceu!";
+      } else {
+        $vencedor = $firstCard->getTitulo() . " e " . $secondCard->getTitulo() . " Empataram!";
+      }
     }
 
     return $vencedor;

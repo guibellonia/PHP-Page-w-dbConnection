@@ -43,7 +43,7 @@ a{
   text-decoration: none;
 }
 
-button:hover{
+button:hover {
   cursor: url('../assets/images/hover.png');
 }
 
@@ -198,6 +198,7 @@ button:hover{
 
 .cardTags {
   width: 100%;
+  cursor: url('../assets/images/hover.png');
 }
 
 .cardTag {
@@ -210,6 +211,7 @@ button:hover{
   border: .05rem solid var(--text-primary);
   font-weight: 200;
   transition: all 0.4s ease;
+  cursor: url('../assets/images/hover.png');
 }
 
 .cardTag:hover {
